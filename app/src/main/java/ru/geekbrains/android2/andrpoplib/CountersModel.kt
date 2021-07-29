@@ -1,7 +1,7 @@
 package ru.geekbrains.android2.andrpoplib
 
 class CountersModel {
-    val counters = mutableListOf(0, 0, 0)
+    private val counters = mutableListOf(0, 0, 0)
     fun getCurrent(index: Int): Int {
         return counters[index]
     }
