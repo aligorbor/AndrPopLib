@@ -1,19 +1,21 @@
 package ru.geekbrains.android2.andrpoplib
 
-class MainPresenter(val view: MainView, val model: CountersModel) {
+import moxy.MvpPresenter
+
+class MainPresenter(val model: CountersModel): MvpPresenter<MainView>() {
 
     fun counterOneClick() {
         val nextValue = model.next(0)
-        view.setCounterOneText(nextValue.toString())
+        viewState.setCounterOneText(nextValue.toString())
     }
 
     fun counterTwoClick() {
         val nextValue = model.next(1)
-        view.setCounterTwoText(nextValue.toString())
+        viewState.setCounterTwoText(nextValue.toString())
     }
 
     fun counterThreeClick() {
         val nextValue = model.next(2)
-        view.setCounterThreeText(nextValue.toString())
+        viewState.setCounterThreeText(nextValue.toString())
     }
 }

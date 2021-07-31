@@ -1,13 +1,13 @@
 package ru.geekbrains.android2.andrpoplib
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import moxy.MvpAppCompatActivity
+import moxy.ktx.moxyPresenter
 import ru.geekbrains.android2.andrpoplib.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), MainView {
+class MainActivity : MvpAppCompatActivity(), MainView {
     private lateinit var vb: ActivityMainBinding
-    private val presenter = MainPresenter(this, CountersModel())
+    private val presenter by moxyPresenter { MainPresenter(CountersModel()) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
